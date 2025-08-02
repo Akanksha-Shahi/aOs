@@ -59,10 +59,12 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navbar onAuthClick={handleAuthClick} />
-      <Hero onGetStarted={handleGetStarted} />
-      <Features />
-      <About />
-      <Contact />
+      <main className="pt-16 lg:pt-20">
+        <Hero onGetStarted={handleGetStarted} />
+        <Features />
+        <About />
+        <Contact />
+      </main>
       <Footer />
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
     </div>

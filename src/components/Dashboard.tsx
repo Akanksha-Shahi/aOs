@@ -110,55 +110,55 @@ const Dashboard: React.FC = () => {
   };
 
   const OverviewTab = () => (
-    <div className="space-y-6">
+    <div className="space-responsive-md">
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white">
-          <div className="flex items-center justify-between">
+      <div className="grid-responsive gap-4 lg:gap-6">
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-4 lg:p-6 text-white">
+          <div className="flex-responsive-between">
             <div>
-              <p className="text-blue-100 text-sm">Total Tokens</p>
-              <p className="text-3xl font-bold">{user?.tokens || 0}</p>
+              <p className="text-blue-100 text-xs lg:text-sm">Total Tokens</p>
+              <p className="text-2xl lg:text-3xl font-bold">{user?.tokens || 0}</p>
             </div>
-            <Award className="h-12 w-12 text-blue-200" />
+            <Award className="h-8 w-8 lg:h-12 lg:w-12 text-blue-200" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-6 text-white">
-          <div className="flex items-center justify-between">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-4 lg:p-6 text-white">
+          <div className="flex-responsive-between">
             <div>
-              <p className="text-teal-100 text-sm">Reports Submitted</p>
-              <p className="text-3xl font-bold">{user?.reportsSubmitted || 0}</p>
+              <p className="text-teal-100 text-xs lg:text-sm">Reports Submitted</p>
+              <p className="text-2xl lg:text-3xl font-bold">{user?.reportsSubmitted || 0}</p>
             </div>
-            <MapPin className="h-12 w-12 text-teal-200" />
+            <MapPin className="h-8 w-8 lg:h-12 lg:w-12 text-teal-200" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white">
-          <div className="flex items-center justify-between">
+        <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-4 lg:p-6 text-white">
+          <div className="flex-responsive-between">
             <div>
-              <p className="text-green-100 text-sm">Cleanups Completed</p>
-              <p className="text-3xl font-bold">{user?.cleanupsCompleted || 0}</p>
+              <p className="text-green-100 text-xs lg:text-sm">Cleanups Completed</p>
+              <p className="text-2xl lg:text-3xl font-bold">{user?.cleanupsCompleted || 0}</p>
             </div>
-            <Camera className="h-12 w-12 text-green-200" />
+            <Camera className="h-8 w-8 lg:h-12 lg:w-12 text-green-200" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 text-white">
-          <div className="flex items-center justify-between">
+        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-4 lg:p-6 text-white">
+          <div className="flex-responsive-between">
             <div>
-              <p className="text-purple-100 text-sm">Impact Score</p>
-              <p className="text-3xl font-bold">8.9</p>
+              <p className="text-purple-100 text-xs lg:text-sm">Impact Score</p>
+              <p className="text-2xl lg:text-3xl font-bold">8.9</p>
             </div>
-            <TrendingUp className="h-12 w-12 text-purple-200" />
+            <TrendingUp className="h-8 w-8 lg:h-12 lg:w-12 text-purple-200" />
           </div>
         </div>
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-2xl p-6 shadow-lg">
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">Monthly Activity</h3>
-          <ResponsiveContainer width="100%" height={300}>
+      <div className="grid-responsive-2 gap-6">
+        <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-lg">
+          <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4">Monthly Activity</h3>
+          <ResponsiveContainer width="100%" height={250} className="lg:h-80">
             <BarChart data={pollutionData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
@@ -170,9 +170,9 @@ const Dashboard: React.FC = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg">
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">Pollution Types</h3>
-          <ResponsiveContainer width="100%" height={300}>
+        <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-lg">
+          <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4">Pollution Types</h3>
+          <ResponsiveContainer width="100%" height={250} className="lg:h-80">
             <PieChart>
               <Pie
                 data={pollutionTypes}
@@ -180,7 +180,7 @@ const Dashboard: React.FC = () => {
                 cy="50%"
                 labelLine={false}
                 label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                outerRadius={80}
+                outerRadius={60}
                 fill="#8884d8"
                 dataKey="value"
               >
@@ -194,9 +194,9 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Token Earnings</h3>
-        <ResponsiveContainer width="100%" height={300}>
+      <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-lg">
+        <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4">Token Earnings</h3>
+        <ResponsiveContainer width="100%" height={250} className="lg:h-80">
           <LineChart data={tokenEarnings}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
@@ -210,42 +210,42 @@ const Dashboard: React.FC = () => {
   );
 
   const ReportsTab = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h3 className="text-2xl font-semibold text-gray-900">Pollution Reports</h3>
+    <div className="space-responsive-md">
+      <div className="flex-responsive-between items-center">
+        <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">Pollution Reports</h3>
         <button
           onClick={() => setShowReportModal(true)}
-          className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-3 rounded-lg flex items-center space-x-2 hover:from-blue-700 hover:to-teal-700 transition-all duration-200"
+          className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg flex-responsive-center space-x-2 hover:from-blue-700 hover:to-teal-700 transition-all duration-200 text-sm lg:text-base font-medium btn-touch-friendly"
         >
-          <Plus className="h-5 w-5" />
+          <Plus className="h-4 w-4 lg:h-5 lg:w-5" />
           <span>New Report</span>
         </button>
       </div>
 
-      <div className="flex space-x-4 mb-6">
+      <div className="flex-responsive gap-4 mb-6">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 lg:h-5 lg:w-5 text-gray-400" />
           <input
             type="text"
             placeholder="Search reports..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base"
           />
         </div>
-        <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-          <Filter className="h-5 w-5" />
+        <button className="flex-responsive-center space-x-2 px-4 py-2 lg:py-3 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm lg:text-base font-medium btn-touch-friendly">
+          <Filter className="h-4 w-4 lg:h-5 lg:w-5" />
           <span>Filter</span>
         </button>
       </div>
 
-      <div className="grid gap-4">
+      <div className="space-responsive-sm">
         {mockReports.map((report) => (
-          <div key={report.id} className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900">{report.location.address}</h4>
-                <p className="text-gray-600">{report.description}</p>
+          <div key={report.id} className="bg-white rounded-xl p-4 lg:p-6 shadow-lg border border-gray-100">
+            <div className="flex-responsive-between items-start mb-4">
+              <div className="space-responsive-xs">
+                <h4 className="text-base lg:text-lg font-semibold text-gray-900">{report.location.address}</h4>
+                <p className="text-gray-600 text-sm lg:text-base">{report.description}</p>
               </div>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+              <span className={`px-3 py-1 rounded-full text-xs lg:text-sm font-medium ${
                 report.status === 'verified' 
                   ? 'bg-green-100 text-green-800' 
                   : report.status === 'pending'
@@ -255,9 +255,9 @@ const Dashboard: React.FC = () => {
                 {report.status}
               </span>
             </div>
-            <div className="flex items-center space-x-4 text-sm text-gray-500">
-              <span className="flex items-center space-x-1">
-                <MapPin className="h-4 w-4" />
+            <div className="flex-responsive items-center space-x-4 text-xs lg:text-sm text-gray-500">
+              <span className="flex-responsive-center space-x-1">
+                <MapPin className="h-3 w-3 lg:h-4 lg:w-4" />
                 <span>{report.pollutionType}</span>
               </span>
               <span>Severity: {report.severity}</span>
@@ -273,27 +273,27 @@ const Dashboard: React.FC = () => {
   );
 
   const CleanupTab = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h3 className="text-2xl font-semibold text-gray-900">Cleanup Activities</h3>
+    <div className="space-responsive-md">
+      <div className="flex-responsive-between items-center">
+        <h3 className="text-xl lg:text-2xl font-semibold text-gray-900">Cleanup Activities</h3>
         <button 
           onClick={() => setShowCleanupModal(true)}
-          className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-lg flex items-center space-x-2 hover:from-green-700 hover:to-teal-700 transition-all duration-200"
+          className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg flex-responsive-center space-x-2 hover:from-green-700 hover:to-teal-700 transition-all duration-200 text-sm lg:text-base font-medium btn-touch-friendly"
         >
-          <Plus className="h-5 w-5" />
+          <Plus className="h-4 w-4 lg:h-5 lg:w-5" />
           <span>Submit Cleanup</span>
         </button>
       </div>
 
-      <div className="grid gap-6">
+      <div className="space-responsive-md">
         {mockCleanups.map((cleanup) => (
-          <div key={cleanup.id} className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900">Cleanup Activity</h4>
-                <p className="text-gray-600">{cleanup.description}</p>
+          <div key={cleanup.id} className="bg-white rounded-xl p-4 lg:p-6 shadow-lg border border-gray-100">
+            <div className="flex-responsive-between items-start mb-4">
+              <div className="space-responsive-xs">
+                <h4 className="text-base lg:text-lg font-semibold text-gray-900">Cleanup Activity</h4>
+                <p className="text-gray-600 text-sm lg:text-base">{cleanup.description}</p>
               </div>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+              <span className={`px-3 py-1 rounded-full text-xs lg:text-sm font-medium ${
                 cleanup.verificationStatus === 'verified' 
                   ? 'bg-green-100 text-green-800' 
                   : 'bg-yellow-100 text-yellow-800'
@@ -304,24 +304,24 @@ const Dashboard: React.FC = () => {
             
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <p className="text-sm font-medium text-gray-700 mb-2">Before</p>
+                <p className="text-xs lg:text-sm font-medium text-gray-700 mb-2">Before</p>
                 <img 
                   src={cleanup.beforeImageUrl} 
                   alt="Before cleanup" 
-                  className="w-full h-32 object-cover rounded-lg"
+                  className="w-full h-24 lg:h-32 object-cover rounded-lg"
                 />
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-700 mb-2">After</p>
+                <p className="text-xs lg:text-sm font-medium text-gray-700 mb-2">After</p>
                 <img 
                   src={cleanup.afterImageUrl} 
                   alt="After cleanup" 
-                  className="w-full h-32 object-cover rounded-lg"
+                  className="w-full h-24 lg:h-32 object-cover rounded-lg"
                 />
               </div>
             </div>
             
-            <div className="flex items-center justify-between text-sm text-gray-500">
+            <div className="flex-responsive-between items-center text-xs lg:text-sm text-gray-500">
               <span>{cleanup.submittedAt.toLocaleDateString()}</span>
               <span className="text-green-600 font-medium">+{cleanup.tokensEarned} tokens earned</span>
             </div>
@@ -332,14 +332,14 @@ const Dashboard: React.FC = () => {
   );
 
   const MarketplaceTab = () => (
-    <div className="space-y-6">
+    <div className="space-responsive-md">
       <div className="text-center py-12">
-        <Award className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Token Marketplace</h3>
-        <p className="text-gray-600">
+        <Award className="h-12 w-12 lg:h-16 lg:w-16 text-gray-400 mx-auto mb-4" />
+        <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-2">Token Marketplace</h3>
+        <p className="text-gray-600 text-sm lg:text-base">
           Trade your BlueGuard tokens, purchase cleanup equipment, or support environmental projects.
         </p>
-        <button className="mt-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all duration-200">
+        <button className="mt-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all duration-200 text-sm lg:text-base font-medium btn-touch-friendly">
           Coming Soon
         </button>
       </div>
@@ -347,20 +347,20 @@ const Dashboard: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+    <div className="min-h-screen bg-gray-50 pt-16 lg:pt-20">
+      <div className="container-responsive-xl py-6 lg:py-8">
+        <div className="mb-6 lg:mb-8">
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
             Welcome back, {user?.name}!
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm lg:text-base">
             Track your environmental impact and manage your BlueGuard tokens
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="mb-8">
-          <nav className="flex space-x-8 border-b border-gray-200">
+        <div className="mb-6 lg:mb-8">
+          <nav className="flex space-x-4 lg:space-x-8 border-b border-gray-200 overflow-x-auto">
             {[
               { id: 'overview', label: 'Overview' },
               { id: 'reports', label: 'Reports' },
@@ -373,7 +373,7 @@ const Dashboard: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
+                className={`py-3 lg:py-4 px-1 border-b-2 font-medium text-xs lg:text-sm transition-colors duration-200 whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'

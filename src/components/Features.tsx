@@ -54,32 +54,35 @@ const Features: React.FC = () => {
   };
 
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section id="features" className="py-16 lg:py-20 bg-white">
+      <div className="container-responsive-xl">
+        <div className="text-center mb-12 lg:mb-16 space-responsive-md">
+          <h2 className="text-responsive-2xl lg:text-responsive-3xl xl:text-responsive-4xl font-bold text-gray-900 mb-4 lg:mb-6">
             Powerful Features for
-            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"> Environmental Protection</span>
+            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent block mt-2 lg:mt-4">
+              Environmental Protection
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-responsive-base lg:text-responsive-lg text-gray-600 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
             Our comprehensive platform provides all the tools you need to report pollution, 
             coordinate cleanups, and earn rewards for protecting our water resources.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid-responsive gap-6 lg:gap-8 px-4 sm:px-0">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100"
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-16 h-16 ${getColorClasses(feature.color)} rounded-2xl flex items-center justify-center mb-6`}>
-                <feature.icon className="h-8 w-8" />
+              <div className={`w-12 h-12 lg:w-16 lg:h-16 ${getColorClasses(feature.color)} rounded-2xl flex items-center justify-center mb-4 lg:mb-6`}>
+                <feature.icon className="h-6 w-6 lg:h-8 lg:w-8" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg lg:text-xl xl:text-2xl font-semibold text-gray-900 mb-3 lg:mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
                 {feature.description}
               </p>
             </div>
